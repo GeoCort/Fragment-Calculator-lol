@@ -13,19 +13,21 @@ let totalFrags = document.getElementById("totalFrag")
 console.log(origin.value)
 
 origin.addEventListener("change",()=>{
-
     calc(parseInt(origin.value))
 })
 
 function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0){
     let total =0;
-    let totalOrigin =
-    total+= origin_table[origin]
+    let totalOrigin =sumTable(origin_table,origin);
+    // calc origin
+    total+= totalOrigin;
     totalFrags.innerText=`${total}`
 }
 
 function sumTable(arr, level){
+    let sum = 0;
     for(let i =0; i < level; i++){
-        
+        sum+=arr[i]
     }
+    return sum;
 }
