@@ -19,4 +19,18 @@ body{
     display:flex;
     gap:4rem;
     border-radius: 10px;
+    padding:2rem;
+}
+
+input{
+    padding:.5rem;
+}
+label{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#totalFrag{
+    font-size: 72px;
+    text-align: center;
 }
