@@ -7,20 +7,51 @@ hexaSkillTable = [50,15 ,18,20,23,25,28.30,33,100,40,45,50,55,60,65,70,75,80,175
 hexaCoreTable = [75,23,27,30,34,38,42,45,49,150,60,68,75,83,90,98,105,113,120,263,128,135,143,150,158,165,173,180,188,375]
 
 
-let origin = document.getElementById("origin")
+let origin = document.getElementById("origin") //origin
+let mastery = document.getElementById("mastery") //hexa skill mastery
+let boost1 = document.getElementById("boostOne")
+let boost2 = document.getElementById("boostTwo")
+let boost3 = document.getElementById("boostThree")
+let boost4 = document.getElementById("boostFour")
 let totalFrags = document.getElementById("totalFrag")
 // totalFrags.textContent
 console.log(origin.value)
 
 origin.addEventListener("change",()=>{
-    calc(parseInt(origin.value))
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
+})
+mastery.addEventListener("change",()=>{
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
+})
+boost1.addEventListener("change", ()=>{
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
+})
+boost2.addEventListener("change", ()=>{
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
+})
+boost3.addEventListener("change", ()=>{
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
+})
+boost4.addEventListener("change", ()=>{
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value))
 })
 
 function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0){
     let total =0;
     let totalOrigin =sumTable(origin_table,origin);
+    let totalMastery = sumTable(hexaSkillTable,mastery)
+    let boostOne = sumTable(hexaCoreTable,boost1)
+    let boostTwo = sumTable(hexaCoreTable,boost2)
+    let boostThree = sumTable(hexaCoreTable,boost3)
+    let boostFour = sumTable(hexaCoreTable,boost4)
     // calc origin
-    total+= totalOrigin;
+    total= totalOrigin + totalMastery + boostOne + boostTwo +boostThree + boostFour;
     totalFrags.innerText=`${total}`
 }
 
