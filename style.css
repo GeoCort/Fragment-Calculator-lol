@@ -3,19 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    text-align: center;
+    padding-top:2rem;
+}
 body{
     background-color: #151419;
     color:snow;
+    min-height: 80vh;
 }
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 3rem;
 }
 .frag-c{
     background-color: #797979;
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 700px;
+    max-height: 700px;
     display:flex;
     gap:4rem;
     border-radius: 10px;
@@ -24,13 +30,25 @@ body{
 
 input{
     padding:.5rem;
+    border-radius: 5px;
+    border:none;
 }
 label{
     font-size: 18px;
     font-weight: 600;
+    padding:0;
 }
 
-#totalFrag{
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.important{
+    color:rgb(255, 228, 22);
+    display: block;
     font-size: 72px;
     text-align: center;
+    padding-top: 2rem;;
 }

@@ -14,6 +14,7 @@ let boost2 = document.getElementById("boostTwo")
 let boost3 = document.getElementById("boostThree")
 let boost4 = document.getElementById("boostFour")
 let totalFrags = document.getElementById("totalFrag")
+let tickets= document.getElementById("tickets")
 // totalFrags.textContent
 console.log(origin.value)
 
@@ -82,6 +83,7 @@ function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0){
     let boostFour = sumTable(hexaCoreTable,boost4)
     // calc origin
     total= totalOrigin + totalMastery + boostOne + boostTwo +boostThree + boostFour;
+    tickets.innerText = `${total / 200}`
     totalFrags.innerText=`${total}`
 }
 

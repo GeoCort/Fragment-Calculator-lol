@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="frag-c">
-            <section>
+            <section class="inputs">
                 <label for="Origin">Origin</label>
                 <input name="Origin" id="origin" type="number" min="0" max="30" value="0" >
                 <br>
@@ -29,9 +29,15 @@
             <input name="boost" id="boostFour" type="number" min="0" max="30" value="0" >
         
             </section>
-            <section>
-                <h1 >Total Fragments Spent</h1>
-                <span id="totalFrag" >0</span>
+            <section class="inputs">
+                <article>
+                    <h1 >Total Fragments Spent</h1>
+                <span id="totalFrag" class="important">0</span>
+                </article>
+                <article>
+                    <h1 >Raffle Tickets</h1>
+                    <span id="tickets" class="important">0</span>
+                </article>
             </section>
         </div>
     </div>
