@@ -5,7 +5,7 @@ origin_table =[0,30,35,40,45,50,55,60,65,200,80,90,100,110,120,130,140,150,160,3
 hexaSkillTable = [50,15 ,18,20,23,25,28,30,33,100,40,45,50,55,60,65,70,75,80,175,85,90,95,100,105,110,115,120,125,250] 
 //Hexa Boost Cores
 hexaCoreTable = [75,23,27,30,34,38,42,45,49,150,60,68,75,83,90,98,105,113,120,263,128,135,143,150,158,165,173,180,188,375]
-
+hexaStat = [10,20,30,40,50,65,80,95,110,125,145,165,185,205,225,250,275,300,325,350]
 
 let origin = document.getElementById("origin") //origin
 let mastery = document.getElementById("mastery") //hexa skill mastery
@@ -15,8 +15,8 @@ let boost3 = document.getElementById("boostThree")
 let boost4 = document.getElementById("boostFour")
 let totalFrags = document.getElementById("totalFrag")
 let tickets= document.getElementById("tickets")
-// totalFrags.textContent
-console.log(origin.value)
+let hStat = document.getElementById("hexaStat")
+let stat= document.getElementById("hexStat")
 
 origin.addEventListener("change",()=>{
     if(parseInt(origin.value) > 30){
@@ -25,7 +25,7 @@ origin.addEventListener("change",()=>{
         origin.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 mastery.addEventListener("change",()=>{
     if(parseInt(mastery.value) > 30){
@@ -34,7 +34,7 @@ mastery.addEventListener("change",()=>{
         mastery.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 boost1.addEventListener("change", ()=>{
     if(parseInt(boost1.value) > 30){
@@ -43,7 +43,7 @@ boost1.addEventListener("change", ()=>{
         boost1.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 boost2.addEventListener("change", ()=>{
     if(parseInt(boost2.value) > 30){
@@ -52,7 +52,7 @@ boost2.addEventListener("change", ()=>{
         boost2.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 boost3.addEventListener("change", ()=>{
     if(parseInt(boost3.value) > 30){
@@ -61,7 +61,7 @@ boost3.addEventListener("change", ()=>{
         boost3.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 boost4.addEventListener("change", ()=>{
     if(parseInt(boost4.value) > 30){
@@ -70,10 +70,19 @@ boost4.addEventListener("change", ()=>{
         boost4.value=0;
     }
     calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
-    parseInt(boost3.value),parseInt(boost4.value))
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
+})
+hStat.addEventListener("change", ()=>{
+    if(parseInt(hStat.value) > 20){
+        hStat.value = 20;
+    }else if(parseInt(hStat.value) < 0){
+        hStat.value=0;
+    }
+    calc(parseInt(origin.value),parseInt(mastery.value),parseInt(boost1.value),parseInt(boost2.value),
+    parseInt(boost3.value),parseInt(boost4.value),parseInt(hStat.value))
 })
 
-function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0){
+function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0,zstat=0){
     let total =0;
     let totalOrigin =sumTable(origin_table,origin);
     let totalMastery = sumTable(hexaSkillTable,mastery)
@@ -81,10 +90,13 @@ function calc(origin=0, mastery=0,boost1=0,boost2=0,boost3=0,boost4=0){
     let boostTwo = sumTable(hexaCoreTable,boost2)
     let boostThree = sumTable(hexaCoreTable,boost3)
     let boostFour = sumTable(hexaCoreTable,boost4)
+    let hexStat_ = sumTable(hexaStat,zstat)
     // calc origin
-    total= totalOrigin + totalMastery + boostOne + boostTwo +boostThree + boostFour;
+    console.log(hexStat_)
+    total= totalOrigin + totalMastery + boostOne + boostTwo +boostThree + boostFour + hexStat_;
     tickets.innerText = `${total / 200}`
     totalFrags.innerText=`${total}`
+    stat.innerText = `${hexStat_}`
 }
 
 function sumTable(arr, level){
@@ -92,5 +104,6 @@ function sumTable(arr, level){
     for(let i =0; i < level; i++){
         sum+=arr[i]
     }
+    console.log(sum)
     return sum;
 }
