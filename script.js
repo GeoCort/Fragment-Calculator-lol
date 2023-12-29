@@ -5,8 +5,12 @@ origin_table =[0,30,35,40,45,50,55,60,65,200,80,90,100,110,120,130,140,150,160,3
 hexaSkillTable = [50,15 ,18,20,23,25,28,30,33,100,40,45,50,55,60,65,70,75,80,175,85,90,95,100,105,110,115,120,125,250] 
 //Hexa Boost Cores
 hexaCoreTable = [75,23,27,30,34,38,42,45,49,150,60,68,75,83,90,98,105,113,120,263,128,135,143,150,158,165,173,180,188,375]
-hexaStat = [10,20,30,40,50,65,80,95,110,125,145,165,185,205,225,250,275,300,325,350]
-
+hexaStat = [10,10,10,10,10,15,15,15,15,15,20,20,20,20,20,25,25,25,25,25]
+let result = 0;
+for(let i = 0; i < 20; i++){
+    result += hexaStat[i]
+}
+console.log(result)
 let origin = document.getElementById("origin") //origin
 let mastery = document.getElementById("mastery") //hexa skill mastery
 let boost1 = document.getElementById("boostOne")
