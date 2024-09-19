@@ -22,14 +22,15 @@ submitBtn.addEventListener("click", (e)=>{
         let sum = 0; 
         // Sum all inputs
         inputs.forEach( (input)=>{
-            console.log(sum, " : ", input.value)
             if(input.value == 0 ) return;
             switch(input.dataset.type){
-                case "origin": sum+= origin_table[input.value-1];
+                case "origin": sum += sumArray(origin_table,input.value);
                 break;
-                case "mastery": sum+= hexaSkillTable[input.value-1];
+                case "mastery": sum+= sumArray(hexaSkillTable,input.value);
                 break;
-                case "boost": sum += hexaCoreTable[input.value-1]
+                case "boost": sum += sumArray(hexaCoreTable,input.value)
+                break;
+                case "common": sum += sumArray(hexaPublic,input.value)
                 break;
             }
         })
@@ -40,3 +41,12 @@ submitBtn.addEventListener("click", (e)=>{
         form.reportValidity()
     }
 })
+
+function sumArray(fragArray, len){
+    let sum = 0;
+    if(len == 0) return 0
+    for(let i = 0; i < len; i++){
+        sum +=fragArray[i]
+    }
+    return sum;
+}
