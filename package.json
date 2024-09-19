@@ -1,0 +1,16 @@
+{
+  "name": "fragment-calculator-lol",
+  "version": "1.0.0",
+  "description": "V1 presumes that only 1 origin skill is available",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchTailwind":"npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.12"
+  }
+}
